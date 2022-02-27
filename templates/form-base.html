@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+
+
+{% block css %}
+<style>
+
+.box-container{
+    height: 100vh !important;
+}
+
+</style>
+
+{% endblock css %}
+
+
+
+
+
+{% block body %}
+    {% include 'title-nav.html' %}
+
+    <div class="container box-container h-auto  d-flex flex-column justify-content-evenly align-items-center">
+        
+        <h1 class="text-muted text-uppercase">{% block heading %}{% endblock heading %}</h1>
+
+        
+        <div class="container h-75 w-75 form-box">
+            <form action="{% block actionurl %}{% endblock actionurl %}"  method="POST">
+    
+                {% block csrf_token %}{% endblock csrf_token %}
+                {% block inputfileds %}
+
+                <div class="mb-3">
+                <label for="{% block inputIdFor %}{% endblock inputIdFor %}" class="form-label">{% block label %}{% endblock label %}</label>
+                <input type="{% block inputType %}{% endblock inputType %}" class="form-control" name="{% block name %}{% endblock name %}" id="{% block inputId %}{% endblock inputId %}">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+                {% endblock inputfileds %}
+
+                {% block moreinput %}{% endblock moreinput %}
+
+            </form>
+        </div>
+
+
+    </div>
+{% endblock body %}
+
+
+
+

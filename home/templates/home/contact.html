@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% include 'navbar.html' %}
+
+<form class="container mt-5" action="{% url 'home:contact' %}" method="POST">
+    {%csrf_token%}
+    <h3 class="text-center">Thanks! to contact us.</h3>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    
+    <div class="mb-3">
+        <label for="subject" class="form-label">Subject</label>
+        <input type="text" class="form-control" name="subject" name="subject" id="subject">
+    </div>
+
+    <div class="mb-3">
+        <label for="message" class="form-label">Example textarea</label>
+        <textarea class="form-control" id="message" name="message" rows="3" placeholder="Enter your message"></textarea>
+    </div>
+
+    <button class="btn btn-primary text-center" type="submit">Send</button>
+</form>
+
+{% endblock body %}
+
+

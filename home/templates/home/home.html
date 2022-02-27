@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Home
+{% endblock title %}
+
+
+
+{% block body %}
+
+{% comment %} include navbar  {% endcomment %}
+{% include 'navbar.html' %}
+
+{% comment %} include carousel  {% endcomment %}
+
+{% include 'carousel.html' %}
+
+
+
+
+{% comment %} about us  {% endcomment %}
+
+<div class="container text-center mb-5" style="margin-top:3rem;">
+    <h1>About us</h1>
+    <h3>Welcome to slappy 2.0</h3>
+
+    <p>Hello! I am slappy and this is my youtube channel for free fire game play 
+        and i hope you must like it Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla qui ad, tempore ea numquam rem commodi molestiae iure quis placeat veniam voluptas fugiat nihil. Iste tempore dicta totam numquam nam in adipisci veritatis culpa! Suscipit laborum possimus, est obcaecati consequatur temporibus aut sequi optio nobis at blanditiis omnis non qui quisquam nisi fugiat nam fuga ullam numquam a veritatis, cumque soluta quam. Aliquid perspiciatis minus aliquam eum? Et magnam adipisci quas, rem, voluptatum facere repellendus blanditiis distinctio corporis dolorum culpa officia error minima fugiat sed molestias ipsam quia. Ipsam, labore ad eaque facilis ducimus qui consequatur aspernatur et illo sapiente? 
+    </p>
+
+</div>
+
+<div class="container text-center">
+    <h1 class="mb-3">Please also check my youtube channel</h1>
+
+    <img src="{% static 'logo.jpg' %}" alt="Error:404" class="mb-3">
+    <br>
+    <a class="btn btn-danger" target="_blank" href="https://www.youtube.com/channel/UCs6ACOgFcRqZZ5DZl9VCPxQ">Subscribed</a>
+</div>
+
+
+<h3 class="m-5 text-center">All my video is here</h3>
+
+{% comment %} render all videos  {% endcomment %}
+
+
+<div class="container d-flex flex-wrap flex-row  justify-content-around overflow-auto" style="height:75vh;">
+
+{% for video in  video%}
+    
+    <iframe width="400" height="250" 
+    style="margin-top:2rem;"
+    src="{{video.url}}"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer;autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen></iframe>
+
+{% endfor %}
+
+</div>
+
+
+
+
+
+<div class="container-fluid bg-dark text-center mb-0 mt-5">
+    <p class="text-light">&copy; 2022-2023</p>
+</div>
+
+
+{% endblock body %}

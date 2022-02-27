@@ -1,0 +1,35 @@
+{% extends 'form-base.html' %}
+
+{% block heading %}Signin please{% endblock heading %}
+
+
+
+
+{% block actionurl %}{% url 'auth:signin' %}{% endblock actionurl %}
+
+{% block inputfileds %}
+
+    <form>
+        {%csrf_token%}
+        <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username">
+        </div>
+        <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password">
+        </div>
+
+
+        <div class="mb-3">
+            <label for="conf-password" class="form-label">Conform password</label>
+            <input type="password" class="form-control" id="conf-password" name="conf-password">
+        </div>
+        <input type="hidden" value={{phone}} name="phones" >
+        <button class="btn btn-primary" type="submit">submit</button>
+
+    </form>
+    <a href="{% url 'auth:login' %}" style="margin-top:1rem;">already has a account ->></a>
+    
+{% endblock inputfileds %}
+

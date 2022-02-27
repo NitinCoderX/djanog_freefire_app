@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+{% include 'navbar.html' %}
+
+
+<div class="container" style="display: flex;flex-wrap: wrap;align-items: flex-start;justify-content: space-around;">
+
+    {% if is_give %}
+    
+    
+
+    {% for giveaway in Giveaway %}
+
+    <div class="card mt-5" style="max-width: 20rem;max-height: auto;">
+        <img class="card-img-top" src="{{giveaway.image.url}}" alt="Error:404">
+        <div class="card-body">
+            <h4 class="card-title text-center">{{giveaway.title}}</h4>
+            <p class="card-text text-center">{{giveaway.desc}}</p>
+
+            <p class="text-muted">Upload at {{giveaway.created}} and last update {{giveaway.update}}</p>
+        </div>
+    </div>
+
+    {% endfor %}
+    {% else %}
+
+    No giveaway is avaiable
+    {% endif %}
+
+</div>
+
+{% endblock body %}

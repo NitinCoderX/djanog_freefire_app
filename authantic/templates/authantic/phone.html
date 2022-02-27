@@ -1,0 +1,23 @@
+{% extends 'form-base.html' %}
+
+{% block heading %}Enter your phone number {% endblock heading %}
+
+{% block actionurl %}{% url 'auth:phone' %}{% endblock actionurl %}
+
+{% block csrf_token %}{% csrf_token %}{% endblock csrf_token %}
+
+
+{% block inputIdFor %}phone{% endblock inputIdFor %}
+{% block inputId %}phone{% endblock inputId %}
+
+{% block label %}Phone number{% endblock label %}
+
+{% block inputType %}number{% endblock inputType %}
+{% block name %}phone{% endblock name %}
+
+
+{% block moreinput %}
+<br>
+<a href="{% url 'auth:login' %}" style="margin-top:1rem;">Already has a account ->></a>
+
+{% endblock moreinput %}
