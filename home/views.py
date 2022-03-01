@@ -21,6 +21,7 @@ def render_home(request):
 
 
 def render_contact(request):
+    login_is = False
     if request.method == "POST":
         email = request.POST["email"]
         subject = request.POST["subject"]
@@ -28,7 +29,7 @@ def render_contact(request):
 
         context_obj = Contact.objects.create(email=email,subject=subject,message=message)
         context_obj.save()
-        login_is = False
+
     user = request.user
     if user.username != "":
         login_is = True
